@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8oqxmm2w2wvv"]
+
+[ext_resource type="PackedScene" uid="uid://47usk4w6tpab" path="res://environment.tscn" id="1_iktak"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_w2qqb"]
+sky_material = SubResource("ProceduralSkyMaterial_u5pdl")
+
+[sub_resource type="Environment" id="Environment_6knbf"]
+background_mode = 2
+sky = SubResource("Sky_w2qqb")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6knbf")
+
+[node name="Environment" parent="." instance=ExtResource("1_iktak")]
