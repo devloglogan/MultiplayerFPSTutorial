@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8oqxmm2w2wvv"]
+[gd_scene load_steps=7 format=3 uid="uid://c8oqxmm2w2wvv"]
 
+[ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://47usk4w6tpab" path="res://environment.tscn" id="1_iktak"]
+[ext_resource type="PackedScene" uid="uid://pmc34jtr4a4v" path="res://player.tscn" id="2_5kl7n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,6 +18,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="World" type="Node"]
+script = ExtResource("1_6tkge")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -25,3 +28,5 @@ shadow_enabled = true
 environment = SubResource("Environment_6knbf")
 
 [node name="Environment" parent="." instance=ExtResource("1_iktak")]
+
+[node name="Player" parent="." instance=ExtResource("2_5kl7n")]
