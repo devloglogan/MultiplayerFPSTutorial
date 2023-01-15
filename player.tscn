@@ -1,11 +1,41 @@
-[gd_scene load_steps=10 format=3 uid="uid://pmc34jtr4a4v"]
+[gd_scene load_steps=16 format=3 uid="uid://pmc34jtr4a4v"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_gbawu"]
 [ext_resource type="PackedScene" uid="uid://dcvvfclls0ge" path="res://Pistol.blend" id="2_0qwdp"]
+[ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="3_27dhu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_p6tif"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x0bbs"]
+
+[sub_resource type="Gradient" id="Gradient_xw3do"]
+offsets = PackedFloat32Array(0, 0.141221, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lb7tb"]
+gradient = SubResource("Gradient_xw3do")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2ywml"]
+gravity = Vector3(0, 0, 0)
+angle_min = 45.0
+angle_max = 45.0
+color_ramp = SubResource("GradientTexture1D_lb7tb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vat7"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.960784, 0.670588, 1)
+albedo_texture = ExtResource("3_27dhu")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ols2i"]
+material = SubResource("StandardMaterial3D_7vat7")
+size = Vector2(0.5, 0.5)
+orientation = 2
 
 [sub_resource type="Animation" id="Animation_4kq8x"]
 length = 0.001
@@ -132,6 +162,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51306, 0)
 
 [node name="Pistol" parent="Camera3D" instance=ExtResource("2_0qwdp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.25, -0.5)
+
+[node name="MuzzleFlash" type="GPUParticles3D" parent="Camera3D/Pistol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0588368, -0.313209)
+emitting = false
+amount = 1
+lifetime = 0.25
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_2ywml")
+draw_pass_1 = SubResource("PlaneMesh_ols2i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"

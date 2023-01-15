@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var camera = $Camera3D
 @onready var anim_player = $AnimationPlayer
+@onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 
 const SPEED = 10.0
 const JUMP_VELOCITY = 10.0
@@ -54,3 +55,5 @@ func _physics_process(delta):
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
+	muzzle_flash.restart()
+	muzzle_flash.emitting = true
