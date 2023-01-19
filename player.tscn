@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://pmc34jtr4a4v"]
+[gd_scene load_steps=17 format=3 uid="uid://pmc34jtr4a4v"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_gbawu"]
 [ext_resource type="PackedScene" uid="uid://dcvvfclls0ge" path="res://Pistol.blend" id="2_0qwdp"]
@@ -146,6 +146,17 @@ _data = {
 "shoot": SubResource("Animation_jnowe")
 }
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hc3ov"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/2/path = NodePath("Camera3D:rotation")
+properties/2/spawn = true
+properties/2/sync = true
+
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_gbawu")
@@ -180,3 +191,6 @@ playback_default_blend_time = 0.05
 libraries = {
 "": SubResource("AnimationLibrary_ett3y")
 }
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_hc3ov")
