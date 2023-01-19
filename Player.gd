@@ -29,7 +29,7 @@ func _unhandled_input(event):
 	
 	if Input.is_action_just_pressed("shoot") \
 			and anim_player.current_animation != "shoot":
-		play_shoot_effects()
+		play_shoot_effects.rpc()
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
@@ -62,8 +62,13 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+@rpc(call_local)
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
 	muzzle_flash.restart()
 	muzzle_flash.emitting = true
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "shoot":
+		anim_player.play("idle")
