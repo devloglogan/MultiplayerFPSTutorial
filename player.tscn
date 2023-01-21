@@ -4,24 +4,24 @@
 [ext_resource type="PackedScene" uid="uid://dcvvfclls0ge" path="res://Pistol.blend" id="2_0qwdp"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="3_27dhu"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_2hcef"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hptw7"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h6dan"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y4g2d"]
 
-[sub_resource type="Gradient" id="Gradient_n31gs"]
+[sub_resource type="Gradient" id="Gradient_ffl5s"]
 offsets = PackedFloat32Array(0, 0.141221, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_w348y"]
-gradient = SubResource("Gradient_n31gs")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nq5cj"]
+gradient = SubResource("Gradient_ffl5s")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y5wqa"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_srvpe"]
 gravity = Vector3(0, 0, 0)
 angle_min = 45.0
 angle_max = 45.0
-color_ramp = SubResource("GradientTexture1D_w348y")
+color_ramp = SubResource("GradientTexture1D_nq5cj")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4nit"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1d7c"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -32,12 +32,12 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_5epf5"]
-material = SubResource("StandardMaterial3D_d4nit")
+[sub_resource type="PlaneMesh" id="PlaneMesh_vdam6"]
+material = SubResource("StandardMaterial3D_r1d7c")
 size = Vector2(0.5, 0.5)
 orientation = 2
 
-[sub_resource type="Animation" id="Animation_ghcux"]
+[sub_resource type="Animation" id="Animation_73kly"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -64,7 +64,7 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_p0eck"]
+[sub_resource type="Animation" id="Animation_qic80"]
 resource_name = "idle"
 length = 3.0
 loop_mode = 1
@@ -93,7 +93,7 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(-0.122103, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_n3op8"]
+[sub_resource type="Animation" id="Animation_002it"]
 resource_name = "move"
 loop_mode = 1
 step = 0.25
@@ -110,7 +110,7 @@ tracks/0/keys = {
 "values": [Vector3(0.5, -0.25, -0.5), Vector3(0.455732, -0.215424, -0.5), Vector3(0.5, -0.25, -0.5), Vector3(0.55565, -0.198737, -0.5)]
 }
 
-[sub_resource type="Animation" id="Animation_d5kpu"]
+[sub_resource type="Animation" id="Animation_g11uh"]
 resource_name = "shoot"
 length = 0.4
 tracks/0/type = "value"
@@ -138,15 +138,15 @@ tracks/1/keys = {
 "values": [Vector3(0.454152, 0, 0), Vector3(0, 0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_b5wgk"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ict5g"]
 _data = {
-"RESET": SubResource("Animation_ghcux"),
-"idle": SubResource("Animation_p0eck"),
-"move": SubResource("Animation_n3op8"),
-"shoot": SubResource("Animation_d5kpu")
+"RESET": SubResource("Animation_73kly"),
+"idle": SubResource("Animation_qic80"),
+"move": SubResource("Animation_002it"),
+"shoot": SubResource("Animation_g11uh")
 }
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_y8wni"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ibf13"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/sync = true
@@ -163,11 +163,11 @@ script = ExtResource("1_gbawu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_2hcef")
+mesh = SubResource("CapsuleMesh_hptw7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_h6dan")
+shape = SubResource("CapsuleShape3D_y4g2d")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51306, 0)
@@ -182,8 +182,8 @@ amount = 1
 lifetime = 0.25
 one_shot = true
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_y5wqa")
-draw_pass_1 = SubResource("PlaneMesh_5epf5")
+process_material = SubResource("ParticleProcessMaterial_srvpe")
+draw_pass_1 = SubResource("PlaneMesh_vdam6")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, -50)
@@ -193,10 +193,10 @@ collision_mask = 2
 autoplay = "idle"
 playback_default_blend_time = 0.05
 libraries = {
-"": SubResource("AnimationLibrary_b5wgk")
+"": SubResource("AnimationLibrary_ict5g")
 }
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_y8wni")
+replication_config = SubResource("SceneReplicationConfig_ibf13")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
