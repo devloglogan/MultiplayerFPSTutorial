@@ -1,27 +1,27 @@
 [gd_scene load_steps=17 format=3 uid="uid://pmc34jtr4a4v"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_gbawu"]
-[ext_resource type="PackedScene" uid="uid://dcvvfclls0ge" path="res://Pistol.blend" id="2_0qwdp"]
+[ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://Pistol.glb" id="2_4esil"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="3_27dhu"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_6sks7"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xk8km"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u5wjb"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_67y6s"]
 
-[sub_resource type="Gradient" id="Gradient_rdspe"]
+[sub_resource type="Gradient" id="Gradient_cfnn0"]
 offsets = PackedFloat32Array(0, 0.141221, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_txhom"]
-gradient = SubResource("Gradient_rdspe")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_is51c"]
+gradient = SubResource("Gradient_cfnn0")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eeugx"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uu53b"]
 gravity = Vector3(0, 0, 0)
 angle_min = 45.0
 angle_max = 45.0
-color_ramp = SubResource("GradientTexture1D_txhom")
+color_ramp = SubResource("GradientTexture1D_is51c")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bsvh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4smqo"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -32,39 +32,15 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_owq20"]
-material = SubResource("StandardMaterial3D_8bsvh")
+[sub_resource type="PlaneMesh" id="PlaneMesh_b2g4i"]
+material = SubResource("StandardMaterial3D_4smqo")
 size = Vector2(0.5, 0.5)
 orientation = 2
 
-[sub_resource type="Animation" id="Animation_rlw80"]
+[sub_resource type="Animation" id="Animation_jhgv2"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Pistol:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.5, -0.25, -0.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Pistol:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
 
-[sub_resource type="Animation" id="Animation_yem3o"]
+[sub_resource type="Animation" id="Animation_knepc"]
 resource_name = "idle"
 length = 3.0
 loop_mode = 1
@@ -93,7 +69,7 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(-0.122103, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_o2cwb"]
+[sub_resource type="Animation" id="Animation_qcgne"]
 resource_name = "move"
 loop_mode = 1
 step = 0.25
@@ -110,7 +86,7 @@ tracks/0/keys = {
 "values": [Vector3(0.5, -0.25, -0.5), Vector3(0.455732, -0.215424, -0.5), Vector3(0.5, -0.25, -0.5), Vector3(0.55565, -0.198737, -0.5)]
 }
 
-[sub_resource type="Animation" id="Animation_hed6x"]
+[sub_resource type="Animation" id="Animation_efeb8"]
 resource_name = "shoot"
 length = 0.4
 tracks/0/type = "value"
@@ -138,15 +114,15 @@ tracks/1/keys = {
 "values": [Vector3(0.454152, 0, 0), Vector3(0, 0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rbumy"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p6wdk"]
 _data = {
-"RESET": SubResource("Animation_rlw80"),
-"idle": SubResource("Animation_yem3o"),
-"move": SubResource("Animation_o2cwb"),
-"shoot": SubResource("Animation_hed6x")
+"RESET": SubResource("Animation_jhgv2"),
+"idle": SubResource("Animation_knepc"),
+"move": SubResource("Animation_qcgne"),
+"shoot": SubResource("Animation_efeb8")
 }
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_a56pc"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hn37q"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/sync = true
@@ -163,16 +139,16 @@ script = ExtResource("1_gbawu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_6sks7")
+mesh = SubResource("CapsuleMesh_xk8km")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_u5wjb")
+shape = SubResource("CapsuleShape3D_67y6s")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51306, 0)
 
-[node name="Pistol" parent="Camera3D" instance=ExtResource("2_0qwdp")]
+[node name="Pistol" parent="Camera3D" instance=ExtResource("2_4esil")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.25, -0.5)
 
 [node name="MuzzleFlash" type="GPUParticles3D" parent="Camera3D/Pistol"]
@@ -182,8 +158,8 @@ amount = 1
 lifetime = 0.25
 one_shot = true
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_eeugx")
-draw_pass_1 = SubResource("PlaneMesh_owq20")
+process_material = SubResource("ParticleProcessMaterial_uu53b")
+draw_pass_1 = SubResource("PlaneMesh_b2g4i")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, -50)
@@ -193,10 +169,10 @@ collision_mask = 2
 autoplay = "idle"
 playback_default_blend_time = 0.05
 libraries = {
-"": SubResource("AnimationLibrary_rbumy")
+"": SubResource("AnimationLibrary_p6wdk")
 }
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_a56pc")
+replication_config = SubResource("SceneReplicationConfig_hn37q")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
