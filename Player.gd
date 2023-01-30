@@ -70,14 +70,14 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-@rpc(call_local)
+@rpc("call_local")
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
 	muzzle_flash.restart()
 	muzzle_flash.emitting = true
 
-@rpc(any_peer)
+@rpc("any_peer")
 func receive_damage():
 	health -= 1
 	if health <= 0:
