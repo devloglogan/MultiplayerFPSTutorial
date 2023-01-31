@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c31g4jk8pw3uq"
-path="res://.godot/imported/Environment.blend-7d8a1852cd88ae5130d6bd3a1951f19f.scn"
+path="res://.godot/imported/Environment.blend-358a1c0602f6c7c9dd6b67f8f2181c4e.scn"
 
 [deps]
 
-source_file="res://Environment.blend"
-dest_files=["res://.godot/imported/Environment.blend-7d8a1852cd88ae5130d6bd3a1951f19f.scn"]
+source_file="res://models/Environment.blend"
+dest_files=["res://.godot/imported/Environment.blend-358a1c0602f6c7c9dd6b67f8f2181c4e.scn"]
 
 [params]
 
@@ -28,6 +28,7 @@ animation/fps=30
 animation/trimming=false
 import_script/path=""
 _subresources={}
+meshes/handle_gltf_embedded_images=1
 blender/nodes/visible=0
 blender/nodes/punctual_lights=true
 blender/nodes/cameras=true

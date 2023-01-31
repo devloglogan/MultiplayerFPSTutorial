@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://pmc34jtr4a4v"]
+[gd_scene load_steps=17 format=3 uid="uid://xcjrjq5cbn7y"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_gbawu"]
-[ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://Pistol.glb" id="2_4esil"]
+[ext_resource type="Script" path="res://player.gd" id="1_2v3wm"]
+[ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://models/Pistol.glb" id="2_4esil"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="3_27dhu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xk8km"]
@@ -135,7 +135,7 @@ properties/2/sync = true
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
-script = ExtResource("1_gbawu")
+script = ExtResource("1_2v3wm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

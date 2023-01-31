@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dcvvfclls0ge"
-path="res://.godot/imported/Pistol.blend-c7942dfde33e4899cd40f79a37352cef.scn"
+path="res://.godot/imported/Pistol.blend-5bd1dbb8082ebec8b85e319b712326e5.scn"
 
 [deps]
 
-source_file="res://Pistol.blend"
-dest_files=["res://.godot/imported/Pistol.blend-c7942dfde33e4899cd40f79a37352cef.scn"]
+source_file="res://models/Pistol.blend"
+dest_files=["res://.godot/imported/Pistol.blend-5bd1dbb8082ebec8b85e319b712326e5.scn"]
 
 [params]
 
@@ -28,6 +28,7 @@ animation/fps=30
 animation/trimming=false
 import_script/path=""
 _subresources={}
+meshes/handle_gltf_embedded_images=1
 blender/nodes/visible=0
 blender/nodes/punctual_lights=true
 blender/nodes/cameras=true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c8oqxmm2w2wvv"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
-[ext_resource type="PackedScene" uid="uid://dg25xo82l4x4k" path="res://environment.tscn" id="1_iktak"]
+[ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
